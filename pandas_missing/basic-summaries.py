@@ -3,17 +3,18 @@
 # %% auto 0
 __all__ = []
 
-# %% ../01_basic-summaries.ipynb 5
+# %% ../01_basic-summaries.ipynb 4
 import pandas as pd
 import pandas_missing.Missing
+from nbdev.showdoc import patch
 
-# %% ../01_basic-summaries.ipynb 6
+# %% ../01_basic-summaries.ipynb 5
 @patch
 def number_missing(self: pandas_missing.Missing.PandasMissing):
     """Return the number of missing values in the entire DataFrame."""
     return self._df.isna().sum().sum()
 
-# %% ../01_basic-summaries.ipynb 8
+# %% ../01_basic-summaries.ipynb 7
 @patch
 def number_complete(self: pandas_missing.Missing.PandasMissing):
     """Return the number of non-missing values in the entire DataFrame."""
