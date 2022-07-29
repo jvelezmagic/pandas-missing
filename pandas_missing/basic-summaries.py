@@ -6,7 +6,7 @@ __all__ = []
 # %% ../01_basic-summaries.ipynb 4
 import pandas as pd
 import pandas_missing.Missing
-from nbdev.showdoc import patch
+from fastcore.basics import patch
 
 # %% ../01_basic-summaries.ipynb 5
 @patch
