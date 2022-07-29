@@ -3,19 +3,19 @@
 # %% auto 0
 __all__ = []
 
-# %% ../01_basic-summaries.ipynb 4
+# %% ../01_basic-summaries.ipynb 5
 import pandas as pd
-import pandas_missing.Missing
+from .Missing import PandasMissing
 from fastcore.basics import patch
 
-# %% ../01_basic-summaries.ipynb 5
+# %% ../01_basic-summaries.ipynb 6
 @patch
-def number_missing(self: pandas_missing.Missing.PandasMissing):
+def number_missing(self: PandasMissing):
     """Return the number of missing values in the entire DataFrame."""
     return self._df.isna().sum().sum()
 
-# %% ../01_basic-summaries.ipynb 7
+# %% ../01_basic-summaries.ipynb 8
 @patch
-def number_complete(self: pandas_missing.Missing.PandasMissing):
+def number_complete(self: PandasMissing):
     """Return the number of non-missing values in the entire DataFrame."""
     return self._df.size - self._df.missing.number_missing()
