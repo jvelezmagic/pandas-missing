@@ -27,4 +27,6 @@ d = { 'settings': { 'audience': 'Developers',
                 'tst_flags': 'notest',
                 'user': 'jvelezmagic',
                 'version': '0.0.1'},
-  'syms': {'pandas_missing.Missing': {'pandas_missing.Missing.PandasMissing': 'https://jvelezmagic.github.io/pandas_missing/Missing.html#pandasmissing'}}}
+  'syms': { 'pandas_missing.Missing': {'pandas_missing.Missing.PandasMissing': 'https://jvelezmagic.github.io/pandas_missing/Missing.html#pandasmissing'},
+            'pandas_missing.basic-summaries': { 'pandas_missing.basic-summaries.pandas_missing.Missing.PandasMissing.number_complete': 'https://jvelezmagic.github.io/pandas_missing/basic-summaries.html#pandas_missing.missing.pandasmissing.number_complete',
+                                                'pandas_missing.basic-summaries.pandas_missing.Missing.PandasMissing.number_missing': 'https://jvelezmagic.github.io/pandas_missing/basic-summaries.html#pandas_missing.missing.pandasmissing.number_missing'}}}

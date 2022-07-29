@@ -3,4 +3,5 @@ website:
     contents:
       - index.ipynb
       - 00_pandas-missing-class.ipynb
+      - 01_basic-summaries.ipynb
       - README.md
