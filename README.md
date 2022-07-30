@@ -11,9 +11,7 @@ Pandas missing
 
 ``` python
 import pandas as pd
-import pandas_missing.Missing
-
-from pandas_missing import *
+import pandas_missing
 ```
 
 ``` python
@@ -115,7 +113,13 @@ df
 </div>
 
 ``` python
+df.missing.number_missing()
+```
+
+    3
+
+``` python
 df.missing.number_complete()
 ```
 
-    AttributeError: 'PandasMissing' object has no attribute 'number_complete'
+    12
