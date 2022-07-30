@@ -3,19 +3,79 @@
 # %% auto 0
 __all__ = []
 
-# %% ../01_basic-summaries.ipynb 5
+# %% ../01_basic-summaries.ipynb 3
 import pandas as pd
-from .Missing import PandasMissing
+from .Missing import PandasMissingDataFrame, PandasMissingSeries
 from fastcore.basics import patch
-
-# %% ../01_basic-summaries.ipynb 6
-@patch
-def number_missing(self: PandasMissing):
-    """Return the number of missing values in the entire DataFrame."""
-    return self._df.isna().sum().sum()
 
 # %% ../01_basic-summaries.ipynb 8
 @patch
-def number_complete(self: PandasMissing):
+def number_missing(self: PandasMissingSeries):
+    """Return the number of missing values in Series."""
+    return self._s.isna().sum()
+
+# %% ../01_basic-summaries.ipynb 10
+@patch
+def number_complete(self: PandasMissingSeries):
+    """Return the number of non-missing values in the Series."""
+    return self._s.notna().sum()
+
+# %% ../01_basic-summaries.ipynb 13
+@patch
+def proportion_missing(self: PandasMissingSeries):
+    """Return the proportion of missing values in the Series."""
+    return self._s.isna().mean()
+
+# %% ../01_basic-summaries.ipynb 15
+@patch
+def proportion_complete(self: PandasMissingSeries):
+    """Return the proportion of non-missing values in the Series"""
+    return self._s.notna().mean()
+
+# %% ../01_basic-summaries.ipynb 18
+@patch
+def percentage_missing(self: PandasMissingSeries):
+    """Return the percentage of missing values in the Series"""
+    return self._s.missing.proportion_missing() * 100
+
+# %% ../01_basic-summaries.ipynb 20
+@patch
+def percentage_complete(self: PandasMissingSeries):
+    """Return the percentage of non-missing values in the Series"""
+    return self._s.missing.proportion_complete() * 100
+
+# %% ../01_basic-summaries.ipynb 26
+@patch
+def number_missing(self: PandasMissingDataFrame):
+    """Return the number of missing values in the entire DataFrame."""
+    return self._df.isna().sum().sum()
+
+# %% ../01_basic-summaries.ipynb 28
+@patch
+def number_complete(self: PandasMissingDataFrame):
     """Return the number of non-missing values in the entire DataFrame."""
     return self._df.size - self._df.missing.number_missing()
+
+# %% ../01_basic-summaries.ipynb 31
+@patch
+def proportion_missing(self: PandasMissingDataFrame):
+    """Return the proportion of missing values in the entire DataFrame."""
+    return self._df.isna().stack().mean()
+
+# %% ../01_basic-summaries.ipynb 33
+@patch
+def proportion_complete(self: PandasMissingDataFrame):
+    """Return the proportion of non-missing values in the entire DataFrame."""
+    return self._df.notna().stack().mean()
+
+# %% ../01_basic-summaries.ipynb 36
+@patch
+def percentage_missing(self: PandasMissingDataFrame):
+    """Return the percentage of missing values in the entire DataFrame."""
+    return self._df.missing.proportion_missing() * 100
+
+# %% ../01_basic-summaries.ipynb 38
+@patch
+def percentage_complete(self: PandasMissingDataFrame):
+    """Return the percentage of non-missing values in the entire DataFrame."""
+    return self._df.missing.proportion_complete() * 100
