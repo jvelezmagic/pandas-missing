@@ -79,3 +79,75 @@ def percentage_missing(self: PandasMissingDataFrame):
 def percentage_complete(self: PandasMissingDataFrame):
     """Return the percentage of non-missing values in the entire DataFrame."""
     return self._df.missing.proportion_complete() * 100
+
+# %% ../01_basic-summaries.ipynb 41
+@patch
+def number_variable_missing(self: PandasMissingDataFrame):
+    """Return the number of variables with missing values."""
+    return self._df.isna().any().sum()
+
+# %% ../01_basic-summaries.ipynb 43
+@patch
+def number_variable_complete(self: PandasMissingDataFrame):
+    """Return the number of variables with non-missing values."""
+    return self._df.notna().all().sum()
+
+# %% ../01_basic-summaries.ipynb 46
+@patch
+def proportion_variable_missing(self: PandasMissingDataFrame):
+    """Return the proportion of variables with missing values."""
+    return self._df.isna().any().mean()
+
+# %% ../01_basic-summaries.ipynb 48
+@patch
+def proportion_variable_complete(self: PandasMissingDataFrame):
+    """Return the proportion of variables with non-missing values."""
+    return self._df.notna().all().mean()
+
+# %% ../01_basic-summaries.ipynb 51
+@patch
+def percentage_variable_missing(self: PandasMissingDataFrame):
+    """Return the percentage of variables with missing values."""
+    return self._df.missing.proportion_variable_missing() * 100
+
+# %% ../01_basic-summaries.ipynb 53
+@patch
+def percentage_variable_complete(self: PandasMissingDataFrame):
+    """Return the percentage of variables with non-missing values."""
+    return self._df.missing.proportion_variable_complete() * 100
+
+# %% ../01_basic-summaries.ipynb 56
+@patch
+def number_case_missing(self: PandasMissingDataFrame):
+    """Return the number of cases with missing values."""
+    return self._df.isna().any(axis=1).sum()
+
+# %% ../01_basic-summaries.ipynb 58
+@patch
+def number_case_complete(self: PandasMissingDataFrame):
+    """Return the number of cases with non-missing values."""
+    return self._df.notna().all(axis=1).sum()
+
+# %% ../01_basic-summaries.ipynb 61
+@patch
+def proportion_case_missing(self: PandasMissingDataFrame):
+    """Return the proportion of cases with missing values."""
+    return self._df.isna().any(axis=1).mean()
+
+# %% ../01_basic-summaries.ipynb 63
+@patch
+def proportion_case_complete(self: PandasMissingDataFrame):
+    """Return the proportion of cases with non-missing values."""
+    return self._df.notna().all(axis=1).mean()
+
+# %% ../01_basic-summaries.ipynb 66
+@patch
+def percentage_case_missing(self: PandasMissingDataFrame):
+    """Return the percentage of cases with missing values."""
+    return self._df.missing.proportion_case_missing() * 100
+
+# %% ../01_basic-summaries.ipynb 68
+@patch
+def percentage_case_complete(self: PandasMissingDataFrame):
+    """Return the percentage of cases with non-missing values."""
+    return self._df.missing.proportion_case_complete() * 100
