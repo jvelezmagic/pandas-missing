@@ -12,24 +12,23 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    toc-depth: 4
 
 website:
   title: "pandas_missing"
+  site-url: "https://jvelezmagic.github.io/pandas_missing/"
   description: "A pandas extension to explore and handling missing values."
-  execute: 
-    enabled: false
   twitter-card: true
   open-graph: true
-  reader-mode: true
   repo-branch: main
-  repo-url: https://github.com/jvelezmagic/pandas-missing/
+  repo-url: "https://github.com/jvelezmagic/pandas-missing/"
   repo-actions: [issue]
   navbar:
     background: primary
     search: true
     right:
       - icon: github
-        href: https://github.com/jvelezmagic/pandas-missing/
+        href: "https://github.com/jvelezmagic/pandas-missing/"
   sidebar:
     style: "floating"
 
