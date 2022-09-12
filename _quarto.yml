@@ -9,13 +9,10 @@ project:
 
 format:
   html:
-    theme:
-      light: cosmo
-      dark: darkly
+    theme: cosmo
     css: styles.css
     toc: true
     toc-depth: 4
-    code-overflow: wrap
 
 website:
   title: "pandas_missing"
