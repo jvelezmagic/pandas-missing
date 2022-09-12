@@ -9,15 +9,13 @@ project:
 
 format:
   html:
-    theme: 
-      light: cosmo
-      dark: darkly
+    theme: cosmo
     css: styles.css
     toc: true
     toc-depth: 4
 
 website:
-  title: "Pandas missing"
+  title: "Pandas Missing"
   site-url: "https://jvelezmagic.github.io/pandas_missing/"
   description: "A pandas extension to explore and handling missing values."
   twitter-card: true
