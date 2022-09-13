@@ -7,6 +7,11 @@ __all__ = ['PandasMissingDataFrame', 'PandasMissingSeries']
 import pandas as pd
 
 # %% ../00_pandas-missing-class.ipynb 5
+try:
+    del pd.DataFrame.missing
+except AttributeError:
+    pass
+
 @pd.api.extensions.register_dataframe_accessor("missing")
 class PandasMissingDataFrame:
     
@@ -17,6 +22,11 @@ class PandasMissingDataFrame:
         self._df = df
 
 # %% ../00_pandas-missing-class.ipynb 9
+try:
+    del pd.Series.missing
+except AttributeError:
+    pass
+
 @pd.api.extensions.register_series_accessor("missing")
 class PandasMissingSeries:
     
