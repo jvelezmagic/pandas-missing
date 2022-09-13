@@ -5,7 +5,15 @@ Pandas missing
 
 ## Install
 
-`pip install pandas-missing`
+``` bash
+pip install pandas-missing
+```
+
+or
+
+``` bash
+conda install --channel jvelezmagic pandas_missing
+```
 
 ## How to use
 

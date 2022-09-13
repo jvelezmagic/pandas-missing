@@ -2,7 +2,7 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/pandas_missing/',
-                'doc_host': 'https://jvelezmagic.github.io',
+                'doc_host': 'https://jvelezmagic.github.io/pandas-missing/',
                 'git_url': 'https://github.com/jvelezmagic/pandas-missing/',
                 'lib_path': 'pandas_missing'},
   'syms': { 'pandas_missing.Missing': { 'pandas_missing.Missing.PandasMissingDataFrame': ( 'pandas-missing-class.html#pandasmissingdataframe',
