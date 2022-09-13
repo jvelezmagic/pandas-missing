@@ -16,7 +16,7 @@ class PandasMissingDataFrame:
 
         self._df = df
 
-# %% ../00_pandas-missing-class.ipynb 8
+# %% ../00_pandas-missing-class.ipynb 9
 @pd.api.extensions.register_series_accessor("missing")
 class PandasMissingSeries:
     
