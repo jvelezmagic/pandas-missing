@@ -1,0 +1,10 @@
+name: pandas-missing
+channels:
+  - defaults
+  - conda-forge
+  - fastai
+dependencies:
+  - ipython
+  - jupyter
+  - nbdev
+  - python
