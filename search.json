@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Pandas missing",
+    "section": "",
+    "text": "pip install pandas-missing\nor\nconda install -c jvelezmagic pandas_missing"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "Pandas missing",
+    "section": "How to use",
+    "text": "How to use\n\nimport pandas as pd\nimport pandas_missing\n\n\ndf = pd.DataFrame.from_dict(\n    {\n        \"number\": range(0, 15)\n    }\n)\n\ndf.iloc[3:6, :] = None\n\ndf\n\n\n\n\n\n  \n    \n      \n      number\n    \n  \n  \n    \n      0\n      0.0\n    \n    \n      1\n      1.0\n    \n    \n      2\n      2.0\n    \n    \n      3\n      NaN\n    \n    \n      4\n      NaN\n    \n    \n      5\n      NaN\n    \n    \n      6\n      6.0\n    \n    \n      7\n      7.0\n    \n    \n      8\n      8.0\n    \n    \n      9\n      9.0\n    \n    \n      10\n      10.0\n    \n    \n      11\n      11.0\n    \n    \n      12\n      12.0\n    \n    \n      13\n      13.0\n    \n    \n      14\n      14.0\n    \n  \n\n\n\n\n\ndf.missing.number_missing()\n\n3\n\n\n\ndf.missing.number_complete()\n\n12"
+  },
+  {
+    "objectID": "Missing.html",
+    "href": "Missing.html",
+    "title": "missing extension",
+    "section": "",
+    "text": "source\n\n\n\n PandasMissingDataFrame (df:pandas.core.frame.DataFrame)\n\nPandas extension that registers a new dataframe accessor called missing.\nimport pandas as pd\nimport pandas_missing\n\ndf = pd.DataFrame(range(0, 10))\n\ndf.missing\n\n<__main__.PandasMissingDataFrame>"
+  },
+  {
+    "objectID": "Missing.html#series-extension",
+    "href": "Missing.html#series-extension",
+    "title": "missing extension",
+    "section": "Series extension",
+    "text": "Series extension\n\nsource\n\nPandasMissingSeries\n\n PandasMissingSeries (series:pandas.core.series.Series)\n\nPandas extension that registers a new series accessor called missing.\nimport pandas as pd\nimport pandas_missing\n\ns = pd.Series(range(0, 10))\n\ns.missing\n\n<__main__.PandasMissingSeries>"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html",
+    "href": "basic_numerical_summaries.html",
+    "title": "Essential numerical summaries for missing values",
+    "section": "",
+    "text": "import pandas as pd\nimport pandas_missing\n\ns = pd.Series(range(0, 100))\ns[40:60] = None\ns[90:95] = None\n\ns\n\n0      0.0\n1      1.0\n2      2.0\n3      3.0\n4      4.0\n      ... \n95    95.0\n96    96.0\n97    97.0\n98    98.0\n99    99.0\nLength: 100, dtype: float64\n\n\n\n\n\n\nsource\n\n\n\n PandasMissingSeries.number_missing ()\n\nReturn the number of missing values in Series.\n\ns.missing.number_missing()\n\n25\n\n\n\nsource\n\n\n\n\n PandasMissingSeries.number_complete ()\n\nReturn the number of non-missing values in the Series.\n\ns.missing.number_complete()\n\n75\n\n\n\n\n\n\n\nsource\n\n\n\n PandasMissingSeries.proportion_missing ()\n\nReturn the proportion of missing values in the Series.\n\ns.missing.proportion_missing()\n\n0.25\n\n\n\nsource\n\n\n\n\n PandasMissingSeries.proportion_complete ()\n\nReturn the proportion of non-missing values in the Series\n\ns.missing.proportion_complete()\n\n0.75\n\n\n\n\n\n\n\nsource\n\n\n\n PandasMissingSeries.percentage_missing ()\n\nReturn the percentage of missing values in the Series\n\ns.missing.percentage_missing()\n\n25.0\n\n\n\nsource\n\n\n\n\n PandasMissingSeries.percentage_complete ()\n\nReturn the percentage of non-missing values in the Series\n\ns.missing.percentage_complete()\n\n75.0"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#dummy-data-for-demostration-purposes-1",
+    "href": "basic_numerical_summaries.html#dummy-data-for-demostration-purposes-1",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Dummy data for demostration purposes",
+    "text": "Dummy data for demostration purposes\nimport pandas as pd\nimport pandas_missing\n\ndf = pd.DataFrame.from_dict(\n    {\n       \"a\": range(0, 10),\n       \"b\": range(10, 20),\n       \"c\": range(20, 30),\n       \"d\": range(30, 40),\n       \"e\": range(40, 50)\n    }\n)\n\ndf.iloc[1:4, 0] = None\ndf.iloc[9, 0] = None\ndf.iloc[5:7, 1] = None\n\ndf\n\n\n\n\n\n  \n    \n      \n      a\n      b\n      c\n      d\n      e\n    \n  \n  \n    \n      0\n      0.0\n      10.0\n      20\n      30\n      40\n    \n    \n      1\n      NaN\n      11.0\n      21\n      31\n      41\n    \n    \n      2\n      NaN\n      12.0\n      22\n      32\n      42\n    \n    \n      3\n      NaN\n      13.0\n      23\n      33\n      43\n    \n    \n      4\n      4.0\n      14.0\n      24\n      34\n      44\n    \n    \n      5\n      5.0\n      NaN\n      25\n      35\n      45\n    \n    \n      6\n      6.0\n      NaN\n      26\n      36\n      46\n    \n    \n      7\n      7.0\n      17.0\n      27\n      37\n      47\n    \n    \n      8\n      8.0\n      18.0\n      28\n      38\n      48\n    \n    \n      9\n      NaN\n      19.0\n      29\n      39\n      49"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#overall-missingness-number",
+    "href": "basic_numerical_summaries.html#overall-missingness-number",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Overall missingness number",
+    "text": "Overall missingness number\n\nsource\n\nPandasMissingDataFrame.number_missing\n\n PandasMissingDataFrame.number_missing ()\n\nReturn the number of missing values in the entire DataFrame.\n\ndf.missing.number_missing()\n\n6\n\n\n\nsource\n\n\nPandasMissingDataFrame.number_complete\n\n PandasMissingDataFrame.number_complete ()\n\nReturn the number of non-missing values in the entire DataFrame.\n\ndf.missing.number_complete()\n\n44"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#overall-missingness-proportion",
+    "href": "basic_numerical_summaries.html#overall-missingness-proportion",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Overall missingness proportion",
+    "text": "Overall missingness proportion\n\nsource\n\nPandasMissingDataFrame.proportion_missing\n\n PandasMissingDataFrame.proportion_missing ()\n\nReturn the proportion of missing values in the entire DataFrame.\n\ndf.missing.proportion_missing()\n\n0.12\n\n\n\nsource\n\n\nPandasMissingDataFrame.proportion_complete\n\n PandasMissingDataFrame.proportion_complete ()\n\nReturn the proportion of non-missing values in the entire DataFrame.\n\ndf.missing.proportion_complete()\n\n0.88"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#overall-missingness-percentage",
+    "href": "basic_numerical_summaries.html#overall-missingness-percentage",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Overall missingness percentage",
+    "text": "Overall missingness percentage\n\nsource\n\nPandasMissingDataFrame.percentage_missing\n\n PandasMissingDataFrame.percentage_missing ()\n\nReturn the percentage of missing values in the entire DataFrame.\n\ndf.missing.percentage_missing()\n\n12.0\n\n\n\nsource\n\n\nPandasMissingDataFrame.percentage_complete\n\n PandasMissingDataFrame.percentage_complete ()\n\nReturn the percentage of non-missing values in the entire DataFrame.\n\ndf.missing.percentage_complete()\n\n88.0"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-number-throughout-variables",
+    "href": "basic_numerical_summaries.html#missingness-number-throughout-variables",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness number throughout variables",
+    "text": "Missingness number throughout variables\n\nsource\n\nPandasMissingDataFrame.number_variable_missing\n\n PandasMissingDataFrame.number_variable_missing ()\n\nReturn the number of variables with missing values.\n\ndf.missing.number_variable_missing()\n\n2\n\n\n\nsource\n\n\nPandasMissingDataFrame.number_variable_complete\n\n PandasMissingDataFrame.number_variable_complete ()\n\nReturn the number of variables with non-missing values.\n\ndf.missing.number_variable_complete()\n\n3"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-proportion-throughout-variables",
+    "href": "basic_numerical_summaries.html#missingness-proportion-throughout-variables",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness proportion throughout variables",
+    "text": "Missingness proportion throughout variables\n\nsource\n\nPandasMissingDataFrame.proportion_variable_missing\n\n PandasMissingDataFrame.proportion_variable_missing ()\n\nReturn the proportion of variables with missing values.\n\ndf.missing.proportion_variable_missing()\n\n0.4\n\n\n\nsource\n\n\nPandasMissingDataFrame.proportion_variable_complete\n\n PandasMissingDataFrame.proportion_variable_complete ()\n\nReturn the proportion of variables with non-missing values.\n\ndf.missing.proportion_variable_complete()\n\n0.6"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-percentage-throughout-variables",
+    "href": "basic_numerical_summaries.html#missingness-percentage-throughout-variables",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness percentage throughout variables",
+    "text": "Missingness percentage throughout variables\n\nsource\n\nPandasMissingDataFrame.percentage_variable_missing\n\n PandasMissingDataFrame.percentage_variable_missing ()\n\nReturn the percentage of variables with missing values.\n\ndf.missing.percentage_variable_missing()\n\n40.0\n\n\n\nsource\n\n\nPandasMissingDataFrame.percentage_variable_complete\n\n PandasMissingDataFrame.percentage_variable_complete ()\n\nReturn the percentage of variables with non-missing values.\n\ndf.missing.percentage_variable_complete()\n\n60.0"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-number-throughout-cases",
+    "href": "basic_numerical_summaries.html#missingness-number-throughout-cases",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness number throughout cases",
+    "text": "Missingness number throughout cases\n\nsource\n\nPandasMissingDataFrame.number_case_missing\n\n PandasMissingDataFrame.number_case_missing ()\n\nReturn the number of cases with missing values.\n\ndf.missing.number_case_missing()\n\n6\n\n\n\nsource\n\n\nPandasMissingDataFrame.number_case_complete\n\n PandasMissingDataFrame.number_case_complete ()\n\nReturn the number of cases with non-missing values.\n\ndf.missing.number_case_complete()\n\n4"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-proportion-throughout-cases",
+    "href": "basic_numerical_summaries.html#missingness-proportion-throughout-cases",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness proportion throughout cases",
+    "text": "Missingness proportion throughout cases\n\nsource\n\nPandasMissingDataFrame.proportion_case_missing\n\n PandasMissingDataFrame.proportion_case_missing ()\n\nReturn the proportion of cases with missing values.\n\ndf.missing.proportion_case_missing()\n\n0.6\n\n\n\nsource\n\n\nPandasMissingDataFrame.proportion_case_complete\n\n PandasMissingDataFrame.proportion_case_complete ()\n\nReturn the proportion of cases with non-missing values.\n\ndf.missing.proportion_case_complete()\n\n0.4"
+  },
+  {
+    "objectID": "basic_numerical_summaries.html#missingness-percentage-throughout-cases",
+    "href": "basic_numerical_summaries.html#missingness-percentage-throughout-cases",
+    "title": "Essential numerical summaries for missing values",
+    "section": "Missingness percentage throughout cases",
+    "text": "Missingness percentage throughout cases\n\nsource\n\nPandasMissingDataFrame.percentage_case_missing\n\n PandasMissingDataFrame.percentage_case_missing ()\n\nReturn the percentage of cases with missing values.\n\ndf.missing.percentage_case_missing()\n\n60.0\n\n\n\nsource\n\n\nPandasMissingDataFrame.percentage_case_complete\n\n PandasMissingDataFrame.percentage_case_complete ()\n\nReturn the percentage of cases with non-missing values.\n\ndf.missing.percentage_case_complete()\n\n40.0"
+  }
+]
