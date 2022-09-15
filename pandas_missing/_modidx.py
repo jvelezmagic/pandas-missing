@@ -108,4 +108,6 @@ d = { 'settings': { 'branch': 'main',
                                                 'pandas_missing.basic_summaries.PandasMissingSeries.proportion_complete': ( 'basic-summaries.html#pandasmissingseries.proportion_complete',
                                                                                                                             'pandas_missing/basic_summaries.py'),
                                                 'pandas_missing.basic_summaries.PandasMissingSeries.proportion_missing': ( 'basic-summaries.html#pandasmissingseries.proportion_missing',
-                                                                                                                           'pandas_missing/basic_summaries.py')}}}
+                                                                                                                           'pandas_missing/basic_summaries.py')},
+            'pandas_missing.tabular_summaries': { 'pandas_missing.tabular_summaries.PandasMissingDataFrame.summarize_variable_missing': ( 'tabular_summaries.html#pandasmissingdataframe.summarize_variable_missing',
+                                                                                                                                          'pandas_missing/tabular_summaries.py')}}}
