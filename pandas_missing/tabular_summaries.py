@@ -34,7 +34,7 @@ def summarize_variable_missing(
             lambda df: df if not add_cumsum else (
                 df
                 .assign(
-                    number_missing_cumsum=lambda internal_df: internal_df.number_missing.cumsum()
+                number_missing_cumsum=lambda internal_df: internal_df.number_missing.cumsum()
                 )
             )
         )
