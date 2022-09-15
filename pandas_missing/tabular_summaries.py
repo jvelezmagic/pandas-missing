@@ -45,3 +45,26 @@ def summarize_variable_missing(
             )
         )
     )
+
+# %% ../02_tabular_summaries.ipynb 12
+@patch
+def tabulate_variable_missing(
+    self: PandasMissingDataFrame,
+    **kwargs # Extra arguments to be passed to `pd.value_counts()` except or `subset`, and `normalize`.
+) -> pd.DataFrame: # A pandas DataFrames.
+    """Provide a table of the number of variables with 0, 1, 2, up to `n`, missing values and the proporton and percentage of the number of variables those variables make up."""
+    
+    return (
+        self._df
+        .missing.summarize_variable_missing()
+        .value_counts(
+            subset="number_missing",
+            normalize=False,
+            **kwargs
+        )
+        .reset_index(name="number_variables")
+        .assign(
+            proportion_variables=lambda df: df.number_variables / df.number_variables.sum(),
+            percentage_variables=lambda df: df.proportion_variables * 100
+        )
+    )
